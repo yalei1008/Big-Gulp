@@ -39,15 +39,15 @@
 		<form role="form" method="post" action="edituser">
 			<input type="hidden" name="type" value="1">
 			<div class="form-group">
-				<input type="text" class="form-control" name="name" placeholder="Edit name">
+				<input type="text" class="form-control" name="name" placeholder="Edit name" value="${name}">
 			</div>
 			
 			<div class="form-group">
-				<input type="text" class="form-control" name="zip" placeholder="Edit Zipcode">
+				<input type="text" class="form-control" name="zip" placeholder="Edit Zipcode" value="${zip}">
 			</div>
 			
 			<div class="form-group">
-				<input type="text" class="form-control" name="email" placeholder="Edit Email">
+				<input type="text" class="form-control" name="email" placeholder="Edit Email" value="${email}">
 			</div>
 			<button type="submit" class="btn btn-default" id="submit">Submit</button>
 		</form>

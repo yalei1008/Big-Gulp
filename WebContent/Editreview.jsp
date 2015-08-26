@@ -22,7 +22,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li><a href="restlist">Review</a></li>
+		<li><a href="restlist">Restaurant List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- li><a href="login"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -38,20 +38,26 @@
 	<h3>Edit Review</h3>		
 		<form role="form" method="post" action="editreview">
 			<input type="hidden" name="type" value="1">
-			<select class="form-control" name="rating">
-			        <option>5</option>
-			        <option>4</option>
-			        <option>3</option>
-			        <option>2</option>
-			        <option>1</option>
-			    </select></a>
+			<select class="form-control" name="rating" id="rating">
+		        <option>5</option>
+		        <option>4</option>
+		        <option>3</option>
+		        <option>2</option>
+		        <option>1</option>
+		    </select>
 			
 			<div class="form-group">
-				<textarea type="text" class="form-control" name="review" placeholder="Edit review"></textarea>
+				<textarea type="text" class="form-control" name="review" placeholder="Edit review">${review}</textarea>
 			</div>
 			
 			<button type="submit" class="btn btn-default" id="submit">Submit</button>
 		</form>
 </div>
+
+<script>
+	document.getElementById("rating").selectedIndex = ${rating};
+</script>
+
+
 </body>
 </html>

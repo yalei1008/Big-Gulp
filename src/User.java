@@ -11,13 +11,13 @@ public class User extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	DatabaseConnection dbc;
-	
+
 	public void init() throws ServletException {
 		dbc = new DatabaseConnection("testdb", "password");
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		doPost(request, response);	
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -74,6 +74,7 @@ public class User extends HttpServlet {
 		
 		return ans + "</tbody>";
 	}
+	
 	
 	public void destroy() { 
 		dbc.disconnect();

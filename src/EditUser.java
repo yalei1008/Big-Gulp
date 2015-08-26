@@ -19,7 +19,7 @@ public class EditUser extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		response.setContentType("text/html");
 		userID = request.getParameter("userID");
-		
+		fill(request, userID);
 		String navRight = Utilities.checkLogin(dbc, request);
 		request.setAttribute("navRight", navRight); 
 		
@@ -45,6 +45,20 @@ public class EditUser extends HttpServlet {
 		getServletContext().getRequestDispatcher("/Edituser.jsp").forward(request, response);
 	
 	
+	}
+	
+	// Fill Form
+	public void fill(HttpServletRequest request, String userID) {
+		ResultSet rs = dbc.query("SELECT * FROM users WHERE id = " + userID);
+		try {
+			if (rs.next()) {
+				request.setAttribute("name",          rs.getString("name"));
+				request.setAttribute("zip", rs.getString("zip"));
+				request.setAttribute("email"  , rs.getString("email"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void destroy() { 
