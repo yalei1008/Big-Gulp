@@ -22,7 +22,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li><a href="restlist">Account Information</a></li>
+		<li><a href="restlist">Restaurant List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- li><a href="login"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

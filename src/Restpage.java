@@ -137,17 +137,32 @@ public class Restpage extends HttpServlet {
 			
 			
 			rs = dbc.query(
-				" SELECT * FROM reviews, users WHERE restid = " + restID +
-				" AND reviews.userID = users.id "
+				  " SELECT reviews.id rid, name, r_date, rating, review"
+				+ " FROM reviews, users WHERE restid = " + restID
+				+ " AND reviews.userID = users.id "
 			);
 			
+
+			
 			while (rs.next()) {
+				String url = "comments?reviewID=" + rs.getString("rid");
+				
 				ans += "<tr><th>" + rs.getString("name") + "</th>";
-				ans += "<th>" + Utilities.reformatDate(rs.getString("r_date")) + "</th></tr>";
+				ans += "<th>" + Utilities.reformatDate(rs.getString("r_date")) + "</th><th></th></tr>";
+				
 				ans += "<tr><td>" + rs.getString("rating") + " / 5 Stars</td>";
-				ans += "<td>" + rs.getString("review") + "</td></tr><tr><td> </td><td> </td></tr>";
-				ans += "<br/>";
+				ans += "<td>" + rs.getString("review") + "</td>";
+				
+				ans += "<td><a href=\"" + url + "\" >Add A Comment</a></td></tr>";
+				ans += "<tr><td> </td><td> </td><td> </td></tr><br/>";
+				
+				ResultSet rsc = dbc.query("SELECT * FROM comments WHERE review_id = " + rs.getString("rid"));
+				while (rsc.next()) {
+					//ans += "<tr><td></td><td>" + rsc.getString("user") + "</td>";
+					ans += "<tr><td></td><td>" + rsc.getString("ct") + "</td></tr>";
+				}
 			}
+			
 			ans += "</table>";
 
 		} catch (SQLException e) {

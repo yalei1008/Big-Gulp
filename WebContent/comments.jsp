@@ -1,22 +1,12 @@
-<!-- deposit.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Account Info</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<style type="text/css">
-		.searchform {
-			position:relative;
-			top: 10px;
-		}
-		.searchbox {
-			width: 800px;
-		}
-	</style>
+<title>Comments</title>
 </head>
 <body>
 
@@ -42,33 +32,17 @@
     </div>
   </div>
 </nav>
-  
+
 <div class="container">
-	<table class="table table-hover table-condensed">
-		${results}
-	</table>  
-			
-		<h3>User Info</h3>		
-		<!-- form role="form" method="post" action="restpage">
-	
+
+	<h3>Add A Comment</h3>		
+		<form role="form" method="post" action="comments">
+			<input type="hidden" name="type" value="1">
 			<div class="form-group">
-				<input type="text" class="form-control" name="review" placeholder="Please enter your name">
-			</div>
-			
-			<div class="form-group">
-				<input type="text" class="form-control" name="review" placeholder="Please enter your email address">
-			</div>
-			
-			<div class="form-group">
-				<input type="text" class="form-control" name="review" placeholder="Please enter zipcode">
+				<textarea type="text" class="form-control" name="comment" placeholder="Comment"></textarea>
 			</div>
 			<button type="submit" class="btn btn-default" id="submit">Submit</button>
-		</form -->
-
-
-	
+		</form>
 </div>
-
 </body>
 </html>
-
